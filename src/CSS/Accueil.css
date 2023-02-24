@@ -1,0 +1,73 @@
+.cursor {
+    cursor: pointer;
+}
+
+.titleCP {
+    position: relative;
+    top: 20%;
+    text-align: center;
+    font-size: 3em;
+    font-weight: 400;
+}
+
+.buttonCP {
+    position: relative;
+    top: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.linkCP {
+    position: relative;
+    top: 30%;
+    text-align: center;
+}
+
+.selectorCP {
+    position: relative;
+    top: 43%;
+    text-align: center;
+}
+
+.bgimage {
+    background-size: 100% 300px;
+    background-position: center;
+    height: 300px;
+    background-repeat: no-repeat
+}
+
+@media screen and (min-width: 576px) {
+    .bgimage {
+        background-size: 100% 900px;
+        background-position: center;
+        height: 900px;
+        background-repeat: no-repeat
+    }
+
+    .titleCP {
+        position: relative;
+        top: 15%;
+        text-align: center;
+        font-size: 5em;
+        font-weight: 400;
+    }
+
+    .buttonCP {
+        position: relative;
+        top: 30%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .linkCP {
+        position: relative;
+        top: 40%;
+        text-align: center;
+    }
+
+    .selectorCP {
+        position: relative;
+        top: 75%;
+        text-align: center;
+    }
+}

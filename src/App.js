@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Accueil from './composents/Accueil';
+import Boutique from './composents/Boutique';
+import Footer from './composents/Footer';
+import Header from './composents/Header';
+import Panier from './composents/Panier';
+import products from './products.json'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Accueil />}></Route>
+        <Route path='/Boutique' element={<Boutique products={products} />}></Route>
+        <Route path='/Panier' element={<Panier />}></Route>
+        {/* path='*' fonctionne si jamais l'url ne correspond à rien de déclaré au dessus, ramène à l'accueil */}
+        <Route path='*' element={<Accueil />}></Route>
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
