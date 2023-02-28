@@ -1,3 +1,7 @@
 .listStyle {
     list-style: none;
 }
+
+.filtre {
+    position: relative;
+}

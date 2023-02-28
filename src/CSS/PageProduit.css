@@ -1,0 +1,17 @@
+.case {
+    height: 30px;
+    width: 60px;
+}
+
+.caseButton {
+    height: 30px;
+    width: 250px;
+}
+
+
+@media screen and (max-width: 576px) {
+    .caseButton {
+        height: 50px;
+        width: 300px;
+    }
+}
