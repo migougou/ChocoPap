@@ -2,6 +2,6 @@
     list-style: none;
 }
 
-.filtre {
-    position: relative;
+.textFilter {
+    text-decoration: underline;
 }

@@ -80,11 +80,12 @@ function Boutique({ products }) {
 
     return (
         <div className='row'>
+            <h1 className='text-center'>BOUTIQUE</h1>
             <div className='col-sm-3'>
                 <div className='shadow'>
                     <h1>FILTRE</h1>
                     <div className="dropdown">
-                        <div className="dropdown-toggle" onClick={toggleMenuCategories}>
+                        <div className="dropdown-toggle textFilter" onClick={toggleMenuCategories}>
                             Catégories {isOpenCategories ? "-" : "+"}
                         </div>
                         {isOpenCategories && (
@@ -106,7 +107,7 @@ function Boutique({ products }) {
                     </div>
 
                     <div className="dropdown">
-                        <div className="dropdown-toggle" onClick={toggleMenuPrix}>
+                        <div className="dropdown-toggle textFilter" onClick={toggleMenuPrix}>
                             Prix {isOpenPrix ? "-" : "+"}
                         </div>
                         {isOpenPrix && (
@@ -124,7 +125,7 @@ function Boutique({ products }) {
                     </div>
 
                     <div className="dropdown">
-                        <div className="dropdown-toggle" onClick={toggleMenuNotes}>
+                        <div className="dropdown-toggle textFilter" onClick={toggleMenuNotes}>
                             Notes {isOpenNotes ? "-" : "+"}
                         </div>
                         {isOpenNotes && (

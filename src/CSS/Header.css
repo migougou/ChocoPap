@@ -1,13 +1,13 @@
-nav {
-    height: 120px;
-}
-
 /*header*/
 .logo {
     height: 80px;
     width: 80px;
-    position: absolute;
     z-index: 10;
+    position: absolute;
+}
+
+header {
+    background-color: #55C0CF;
 }
 
 /*header*/
@@ -19,6 +19,7 @@ nav {
     align-items: center;
     position: relative;
     padding: 1;
+    height: 120px;
 }
 
 /*header*/
@@ -44,9 +45,11 @@ nav {
 
     .liste {
         flex-direction: column;
-        height: 270px;
+        height: 180px;
+        width: 100%;
+        background-color: #55C0CF;
+        z-index: 10;
     }
-
 
     .items {
         height: 50px;
@@ -62,5 +65,10 @@ nav {
         color: #333;
         cursor: pointer;
     }
+
+    .logo {
+        position: relative;
+    }
+
 
 }

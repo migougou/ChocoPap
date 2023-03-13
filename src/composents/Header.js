@@ -35,19 +35,18 @@ const Header = () => {
     return (
         <header>
 
-            <nav className='bg-primary '>
-                <img src={logo} alt='logo' className='logo position-absolute mx-4 my-3' />
-                {(toggleMenu || largeur > 500) && (
-                    <ul className='liste bg-primary me-3'>
-                        <li className='items px-2 '><NavLink className='text-white' to='/'>Accueil</NavLink></li>
-                        <li className='items px-2 '><NavLink className='text-white' to='/Boutique'>Boutique</NavLink></li>
-                        <li className='items px-2 '><NavLink className='text-white' to='/Panier'>Panier</NavLink> <ImCart className='text-white' /></li>
-                    </ul>
-                )}
+            <img src={logo} alt='logo' className='logo mx-4 my-3' />
+            {(toggleMenu || largeur > 500) && (
+                <ul className='liste me-3 mb-0'>
+                    <li className='items px-2 '><NavLink className='text-white' to='/'>Accueil</NavLink></li>
+                    <li className='items px-2 '><NavLink className='text-white' to='/Boutique'>Boutique</NavLink></li>
+                    <li className='items px-2 '><NavLink className='text-white' to='/Panier'>Panier</NavLink> <ImCart className='text-white' /></li>
+                </ul>
+            )}
 
-                <span onClick={toggleNavSmallScreen} className='btnn'><GiHamburgerMenu size='70' /></span>
+            <span onClick={toggleNavSmallScreen} className='btnn'><GiHamburgerMenu size='70' /></span>
 
-            </nav>
+
         </header>
     );
 };
