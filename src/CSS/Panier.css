@@ -1,0 +1,12 @@
+.btnPanier {
+    height: 50px;
+    width: 400px;
+    display: block;
+    margin: auto;
+
+}
+
+.btnClose {
+    height: 30px;
+    width: 30px;
+}

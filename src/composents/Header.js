@@ -6,7 +6,7 @@ import { ImCart } from 'react-icons/im';
 import { NavLink } from 'react-router-dom';
 
 
-const Header = () => {
+const Header = ({ displayPanier, setDisplayPanier, numberOfProducts }) => {
     const [toggleMenu, setToggleMenu] = useState(false)
     const [largeur, setLargeur] = useState(window.innerWidth)
 
@@ -34,13 +34,12 @@ const Header = () => {
 
     return (
         <header>
-
             <img src={logo} alt='logo' className='logo mx-4 my-3' />
             {(toggleMenu || largeur > 500) && (
                 <ul className='liste me-3 mb-0'>
                     <li className='items px-2 '><NavLink className='text-white' to='/'>Accueil</NavLink></li>
                     <li className='items px-2 '><NavLink className='text-white' to='/Boutique'>Boutique</NavLink></li>
-                    <li className='items px-2 '><NavLink className='text-white' to='/Panier'>Panier</NavLink> <ImCart className='text-white' /></li>
+                    <li className='items px-2 '><span className='text-white' onClick={() => { setDisplayPanier(!displayPanier) }}>{largeur < 576 ? 'Panier ' : ''}{numberOfProducts}<ImCart className='text-white' /></span></li>
                 </ul>
             )}
 

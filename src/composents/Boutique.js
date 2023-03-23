@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import Chocolats from './Chocolats';
 import '../CSS/Boutique.css';
 
-function Boutique({ products }) {
+function Boutique({ products, addProduct }) {
 
     const [isOpenCategories, setIsOpenCategories] = useState(false);
     const [isOpenPrix, setIsOpenPrix] = useState(false);
     const [isOpenNotes, setIsOpenNotes] = useState(false);
-    const [selectedOptions, setSelectedOptions] = useState([]);
+    const [selectedOptions, setSelectedOptions] = useState([1]);
     const [minPrice, setMinPrice] = useState(0);
     const [maxPrice, setMaxPrice] = useState(30);
     const [selectedNoteMin, setSelectedNoteMin] = useState(0);
@@ -20,9 +20,9 @@ function Boutique({ products }) {
         { id: 2, name: 'Chocolat blanc' },
         { id: 3, name: 'Chocolat au lait' },
         { id: 4, name: 'Chocolat noir' },
-        { id: 5, name: 'Noix/Noisette' },
-        { id: 6, name: 'Fruits' },
-        { id: 7, name: 'Caramel' },
+        { id: 5, name: 'Caramel' },
+        { id: 6, name: 'Noix/Noisette' },
+        { id: 7, name: 'Fruits' },
         { id: 8, name: 'Liqueur' },
     ];
 
@@ -56,6 +56,8 @@ function Boutique({ products }) {
         }
 
         setSelectedOptions(newSelectedOptions);
+
+
     };
 
     const handlePriceChange = (event) => {
@@ -80,16 +82,16 @@ function Boutique({ products }) {
 
     return (
         <div className='row'>
-            <h1 className='text-center'>BOUTIQUE</h1>
-            <div className='col-sm-3'>
-                <div className='shadow'>
-                    <h1>FILTRE</h1>
-                    <div className="dropdown">
-                        <div className="dropdown-toggle textFilter" onClick={toggleMenuCategories}>
+            <h1 className='text-center my-4 my-sm-5'>BOUTIQUE</h1>
+            <div className='col-sm-3 col-6 filtre'>
+                <div className='shadow '>
+                    <h4 className='ms-2 pt-2'>FILTRE</h4>
+                    <div className="dropdown ">
+                        <div className="dropdown-toggle textFilter ms-2 my-3" onClick={toggleMenuCategories}>
                             Catégories {isOpenCategories ? "-" : "+"}
                         </div>
                         {isOpenCategories && (
-                            <div className="dropdown-option">
+                            <div className="dropdown-option ms-2">
                                 {options.map((option) => (
                                     <div className="dropdown-option" key={option.id}>
                                         <input
@@ -107,31 +109,31 @@ function Boutique({ products }) {
                     </div>
 
                     <div className="dropdown">
-                        <div className="dropdown-toggle textFilter" onClick={toggleMenuPrix}>
+                        <div className="dropdown-toggle textFilter ms-2 my-3" onClick={toggleMenuPrix}>
                             Prix {isOpenPrix ? "-" : "+"}
                         </div>
                         {isOpenPrix && (
                             <div className="dropdown-option">
                                 <div className="dropdown-option">
-                                    <label htmlFor="minPrice">Prix min</label>
-                                    <input type="number" name="minPrice" value={minPrice} onChange={handlePriceChange} />
+                                    <label htmlFor="minPrice" className='mx-2'>Prix min</label>
+                                    <input className='input' type="number" name="minPrice" value={minPrice} onChange={handlePriceChange} />
                                 </div>
                                 <div className="dropdown-option">
-                                    <label htmlFor="maxPrice">Prix max</label>
-                                    <input type="number" name="maxPrice" value={maxPrice} onChange={handlePriceChange} />
+                                    <label htmlFor="maxPrice" className='mx-2 mt-3'>Prix max</label>
+                                    <input className='input' type="number" name="maxPrice" value={maxPrice} onChange={handlePriceChange} />
                                 </div>
                             </div>
                         )}
                     </div>
 
                     <div className="dropdown">
-                        <div className="dropdown-toggle textFilter" onClick={toggleMenuNotes}>
+                        <div className="dropdown-toggle textFilter ms-2 my-3" onClick={toggleMenuNotes}>
                             Notes {isOpenNotes ? "-" : "+"}
                         </div>
                         {isOpenNotes && (
                             <div className="dropdown-option">
                                 <div className="dropdown-option">
-                                    <label htmlFor="noteMin">Note min :</label>
+                                    <label htmlFor="noteMin" className='mx-2'>Note min </label>
                                     <select name="Notes" id="Notes" onChange={handleNoteMinChange}>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -141,7 +143,7 @@ function Boutique({ products }) {
                                     </select>
                                 </div>
                                 <div className="dropdown-option">
-                                    <label htmlFor="noteMax">Note max :</label>
+                                    <label htmlFor="noteMax" className='mx-2 mt-3 pb-3'>Note max </label>
                                     <select name="Notes" id="Notes" onChange={handleNoteMaxChange}>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -159,9 +161,10 @@ function Boutique({ products }) {
                 {products
                     .filter(product => product.price >= minPrice && product.price <= maxPrice)
                     .filter(product => product.note >= selectedNoteMin && product.note <= selectedNoteMax)
-
+                    .filter(product => selectedOptions.find(selectedOption => { if (selectedOption === 1) return true; if ((product.category.blanc && selectedOption === 2) || (product.category.lait && selectedOption === 3) || (product.category.noir && selectedOption === 4) || (product.category.caramel && selectedOption === 5) || (product.category.noix && selectedOption === 6) || (product.category.fruit && selectedOption === 7) || (product.category.liqueur && selectedOption === 8)) return true; return false; }
+                    ))
                     .map((product) => (
-                        <Chocolats product={product} />
+                        <Chocolats key={product.id} product={product} addProduct={addProduct} />
                     ))}
             </ul>
 

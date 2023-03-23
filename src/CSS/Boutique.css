@@ -5,3 +5,12 @@
 .textFilter {
     text-decoration: underline;
 }
+
+.filtre {
+    z-index: -10;
+}
+
+.input {
+    height: 30px;
+    width: 60px;
+}
