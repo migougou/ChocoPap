@@ -46,7 +46,7 @@ class App extends React.Component {
 
   deleteToItem(productId) {
     this.setState(state => {
-      let cart = [...state, cart];
+      let cart = [...state.cart];
       cart = cart.filter(item => item.id !== productId)
       return { cart }
     })
@@ -56,7 +56,7 @@ class App extends React.Component {
 
   deleteItem() {
     this.setState(state => {
-      let cart = [...state, cart];
+      let cart = [...state.cart];
       cart = []
       return { cart }
     })
@@ -84,8 +84,9 @@ class App extends React.Component {
         if (product) acc += item.qty * product.price;
         return Math.round(acc * 100) / 100;
       }, 0);
-      return (subTotal)
+      return { subTotal }
     })
+    console.log(this.state.subTotal)
   }
 
   updateNumberOfProducts() {
@@ -95,7 +96,7 @@ class App extends React.Component {
         if (item) acc += (1 * item.qty);
         return acc;
       }, 0);
-      return (numberOfProducts)
+      return { numberOfProducts }
     })
   }
 
