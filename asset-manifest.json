@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/ChocoPap/static/css/main.4031fe8b.css",
+    "main.js": "/ChocoPap/static/js/main.6fc3e250.js",
+    "static/js/787.4d5252b9.chunk.js": "/ChocoPap/static/js/787.4d5252b9.chunk.js",
+    "static/media/logo.png": "/ChocoPap/static/media/logo.4dbdfe6be97512fd2521.png",
+    "index.html": "/ChocoPap/index.html",
+    "main.4031fe8b.css.map": "/ChocoPap/static/css/main.4031fe8b.css.map",
+    "main.6fc3e250.js.map": "/ChocoPap/static/js/main.6fc3e250.js.map",
+    "787.4d5252b9.chunk.js.map": "/ChocoPap/static/js/787.4d5252b9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4031fe8b.css",
+    "static/js/main.6fc3e250.js"
+  ]
+}
